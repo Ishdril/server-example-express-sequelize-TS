@@ -1,5 +1,7 @@
 'use strict';
+import * as dotenv from 'dotenv';
 import { Sequelize, Dialect } from 'sequelize';
+dotenv.config();
 
 export const sequelize = new Sequelize(
   process.env.DB_NAME ?? 'my_db',
@@ -8,5 +10,6 @@ export const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST ?? 'localhost',
     dialect: (process.env.DB_DIALECT as Dialect) ?? 'postgres',
+    logging: false,
   }
 );

@@ -18,9 +18,8 @@ app.use(router);
 
 (async function (): Promise<void> {
   try {
-    console.log(process.env.DB_NAME);
     await sequelize.sync();
-    console.log('✅ DB connected');
+    console.log('✅ DB connected to:', process.env.DB_NAME);
     app.listen(PORT, () => {
       console.log(`🚀 server running @ http://localhost:${PORT}`);
     });
